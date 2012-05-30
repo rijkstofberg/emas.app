@@ -5,8 +5,8 @@ version = '0.1'
 
 setup(name='emas.app',
       version=version,
-      description="EMAS app",
-      long_description=open("README.txt").read() + "\n" +
+      description="emas.app",
+      long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -27,7 +27,6 @@ setup(name='emas.app',
       install_requires=[
           'setuptools',
           'plone.app.dexterity',
-          'plone.namedfile [blobs]',
           'collective.autopermission',
           # -*- Extra requirements: -*-
       ],
@@ -35,6 +34,7 @@ setup(name='emas.app',
         'test': [
           'plone.app.testing',
         ],
+      },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
