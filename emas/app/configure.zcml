@@ -19,7 +19,7 @@
        in Plone -->
   <genericsetup:registerProfile
       name="default"
-      title="EMAS app"
+      title="emas.app"
       directory="profiles/default"
       description="Extension profile for EMAS app"
       provides="Products.GenericSetup.interfaces.EXTENSION"
