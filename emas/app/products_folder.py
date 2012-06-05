@@ -21,22 +21,18 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from emas.app import MessageFactory as _
 
 
-class IProduct(form.Schema):
+class IProductsFolder(form.Schema, IImageScaleTraversable):
     """
-    An orderable product (e.g. a printed text book)
+    Products and services folder
     """
-    price = schema.Float(
-        title=_(u"Price"),
-        description=_("Price in Rands."),
-        required=False,
-    )
+    
 
-class Product(dexterity.Item):
-    grok.implements(IProduct)
+class ProductsFolder(dexterity.Container):
+    grok.implements(IProductsFolder)
     
 
 class SampleView(grok.View):
-    grok.context(IProduct)
+    grok.context(IProductsFolder)
     grok.require('zope2.View')
     
     # grok.name('view')

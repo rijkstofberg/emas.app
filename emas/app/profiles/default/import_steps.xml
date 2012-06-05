@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+    <import-step id="emas.app" version="2012-06-05-08:43"
+                handler="emas.app.setuphandlers.install"
+                title="emas.app">
+        <dependency step="plone-content"/>
+        emas.app installation steps.
+    </import-step>
+</import-steps>

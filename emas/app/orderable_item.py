@@ -21,45 +21,23 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from emas.app import MessageFactory as _
 
 
-class IOrderItem(form.Schema, IImageScaleTraversable):
+class IOrderableItem(form.Schema):
     """
-    An order line item.
+    Anything that can be ordered.
     """
-    related_item = RelationChoice(
-        title=_(u'label_related_item', default=u'Related Item'),
-        source=ObjPathSourceBinder(
-          object_provides='emas.app.product.IProduct'),
-        required=True,
-    )
-
-    quantity = schema.Int(
-        title=_(u"Quantity"),
-        description=_("The quantity."),
-        required=True,
-    )
-
     price = schema.Float(
         title=_(u"Price"),
-        description=_(
-            ("The price. If you don't set this the related item's "
-             "price will be used.")
-        ),
-        required=False,
-    )
-
-    total = schema.Float(
-        title=_(u"Total"),
-        description=_("The total."),
+        description=_("Price in Rands."),
         required=False,
     )
 
 
-class OrderItem(dexterity.Item):
-    grok.implements(IOrderItem)
-
+class OrderableItem(dexterity.Item):
+    grok.implements(IOrderableItem)
+    
 
 class SampleView(grok.View):
-    grok.context(IOrderItem)
+    grok.context(IOrderableItem)
     grok.require('zope2.View')
     
     # grok.name('view')

@@ -28,6 +28,7 @@ setup(name='emas.app',
           'setuptools',
           'plone.app.dexterity',
           'collective.autopermission',
+          'collective.testcaselayer',
           # -*- Extra requirements: -*-
       ],
       extras_require={
