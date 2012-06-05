@@ -2,21 +2,9 @@ from five import grok
 from plone.directives import dexterity, form
 
 from zope import schema
-from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
-from zope.interface import invariant, Invalid
-
-from z3c.form import group, field
-
-from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.namedfile.field import NamedImage, NamedFile
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
-
-from plone.app.textfield import RichText
-
-from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.app.z3cform.wysiwyg.widget import WysiwygFieldWidget
 
 from emas.app.product import Product
 from emas.app.product import IProduct
@@ -81,10 +69,25 @@ class IService(IProduct):
 
 class Service(Product):
     grok.implements(IService)
-    
 
-class SampleView(grok.View):
+
+class AddForm(dexterity.AddForm):
+    grok.name('emas.app.service')
+
+    def updateWidgets(self):
+        self.fields['IBasic.description'].widgetFactory = WysiwygFieldWidget
+        super(AddForm, self).updateWidgets()
+
+
+class EditForm(dexterity.EditForm):
+    grok.context(IService)
+
+    def updateWidgets(self):
+        self.fields['IBasic.description'].widgetFactory = WysiwygFieldWidget
+        super(EditForm, self).updateWidgets()
+
+
+class View(dexterity.DisplayForm):
     grok.context(IService)
     grok.require('zope2.View')
-    
-    # grok.name('view')
+    grok.name('view')

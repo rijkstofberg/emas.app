@@ -4,8 +4,6 @@ from z3c.form import field
 from zope import schema
 
 from plone.directives import dexterity, form
-from plone.app.textfield import RichText
-from plone.app.textfield.widget import RichTextWidget
 from plone.app.z3cform.wysiwyg.widget import WysiwygFieldWidget
 
 from emas.app import MessageFactory as _
@@ -45,10 +43,4 @@ class EditForm(dexterity.EditForm):
 class View(dexterity.DisplayForm):
     grok.context(IProduct)
     grok.require('zope2.View')
-
-
-class SampleView(grok.View):
-    grok.context(IProduct)
-    grok.require('zope2.View')
-    
-    # grok.name('view')
+    grok.name('view')
