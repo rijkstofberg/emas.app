@@ -17,12 +17,14 @@
             
             <div tal:replace="structure provider:plone.belowcontenttitle" />
 
+            <label>Description</label>
             <div class="documentDescription">
                 <span tal:content="structure context/description" />
             </div>
 
             <div tal:replace="structure provider:plone.abovecontentbody" />
 
+            <label>Price</label>
             <div>
                 R&nbsp;<span tal:content="structure view/w/price/render" />
             </div>
