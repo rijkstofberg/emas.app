@@ -44,11 +44,11 @@ def test_suite():
 
 
         # Integration tests that use PloneTestCase
-        ztc.ZopeDocFileSuite(
-            'INTEGRATION.txt', 
-            package='emas.app',
-            optionflags = OPTION_FLAGS,
-            test_class=TestCase),
+        #ztc.ZopeDocFileSuite(
+        #    'INTEGRATION.txt', 
+        #    package='emas.app',
+        #    optionflags = OPTION_FLAGS,
+        #    test_class=TestCase),
 
         #ztc.FunctionalDocFileSuite(
         #    'BROWSER.TXT',
