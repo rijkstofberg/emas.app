@@ -6,7 +6,6 @@ from Products.CMFCore.utils import getToolByName
 def orderAdded(order, event):
     """ Set the userid
     """
-    import pdb;pdb.set_trace()
     member = order.restrictedTraverse('@@plone_portal_state').member()
     order.userid = member.getId()
     order.date_ordered = datetime.datetime.now()
